@@ -592,15 +592,18 @@ export default function TimelinePanel() {
       : (cue.transitionEffect && cue.transitionEffect !== "none"
           ? [{ type: cue.transitionEffect, speed: cue.transitionEffectSpeed ?? 8, amount: cue.transitionEffectAmount ?? 0.85 }]
           : []);
-    for (const layer of effectLayers) {
-      const transitionEffectId = addEffect({
-        type: layer.type,
-        fixtureIds: targetState.map((fixture) => fixture.fixtureId),
-        speed: layer.speed,
-        amount: layer.amount,
-      });
-      if (transitionEffectId !== null) transitionEffectIds.push(transitionEffectId);
-    }
+ for (const layer of effectLayers) {
+  const effectId = addEffect({
+    type: layer.type,
+    fixtureIds: targetState.map((fixture) => fixture.fixtureId),
+    speed: layer.speed,
+    amount: layer.amount,
+  });
+
+  if (effectId !== null) {
+    transitionEffectIds.push(effectId);
+  }
+}
 
     const transitionType = cue.transitionType ?? "linear";
 
