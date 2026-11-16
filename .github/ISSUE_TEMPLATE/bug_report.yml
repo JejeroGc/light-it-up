@@ -1,0 +1,67 @@
+name: Reportar un problema
+about: Compartí un error encontrado en Light It Up Alpha 17
+title: "[BUG] "
+labels: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por probar Light It Up Alpha 17. Si el problema apareció importando un rider, incluí el archivo únicamente si tenés permiso para compartirlo.
+  - type: input
+    id: version
+    attributes:
+      label: Versión
+      value: v0.3.13 Alpha 17
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Navegador y sistema operativo
+      placeholder: Chrome / macOS 15
+    validations:
+      required: true
+  - type: input
+    id: venue
+    attributes:
+      label: Teatro / espacio (opcional)
+      placeholder: Nombre del espacio o "prefiero no compartirlo"
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área del problema
+      options:
+        - Rider Import
+        - Escenario / Scene Tree
+        - Selección / Multi-selección
+        - Inspector / Programmer
+        - Cues / GO-BACK
+        - Timeline / Transiciones / FX
+        - Guardar / Abrir proyecto
+        - Otro
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducirlo
+      placeholder: "1. Abrí...\n2. Cargué...\n3. Seleccioné..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: ¿Qué esperabas que ocurriera?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: ¿Qué ocurrió realmente?
+    validations:
+      required: true
+  - type: textarea
+    id: media
+    attributes:
+      label: Capturas, grabaciones o rider
+      description: Arrastrá acá material útil. No publiques riders privados/confidenciales sin autorización.
